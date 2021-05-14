@@ -1,0 +1,19 @@
+{
+    "competition": {
+        "checkpointteam": "WPP-test",
+        "checkpointteam_list": "WP-test",
+        "checkpoint": "Na",
+        "checkpoint_list": "Na"
+    },
+    "system": {
+        "id": "Na",
+        "battery": "Na",
+        "internet": "Na",
+        "update_interval": 1,
+        "file_name": "VL_Doorkomst.csv"
+    },
+    "log": {
+        "update_last": "Na",
+        "record_last": "Na"
+    }
+}
