@@ -1,6 +1,9 @@
-pyusb
-flask
 json
 os
+time 
 datetime
 csv
+threading
+flask
+usb.core
+usb.util
