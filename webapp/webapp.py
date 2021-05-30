@@ -9,7 +9,7 @@ def home():
     title = "Systeem"
     config_load = config.config_read()
 
-    return render_template("systeem_status.html", title= title, config_load = config_load)
+    return render_template("systeem_status.html", title = title, config_load = config_load)
 
 @app.route("/invoerendoorkomst", methods = ['POST', 'GET'])
 def invoerendoorkomst():
