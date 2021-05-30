@@ -1,9 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import config #import the config of the app
+import datetime
 
 app = Flask(__name__)
-
-buffer = [] #create empty buffer
 
 @app.route('/')
 def home():
@@ -12,9 +11,16 @@ def home():
 
     return render_template("systeem_status.html", title= title, config_load = config_load)
 
-@app.route("/invoerendoorkomst")
+@app.route("/invoerendoorkomst", methods = ['POST', 'GET'])
 def invoerendoorkomst():
     title = "Doorkomst"
+
+    if request.method == 'POST':
+        team = request.form['team_insert']
+        datetime_current = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat() #current system datetime
+        
+        print(datetime_current, " ", team)
+
     return render_template("invoeren_doorkomst.html", title= title)
 
 @app.route("/wijzigingen")
