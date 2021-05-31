@@ -4,6 +4,11 @@ import datetime
 
 app = Flask(__name__)
 
+class webserver:
+    buffer = []
+    def __init___(self):
+        pass            
+
 @app.route('/')
 def home():
     title = "Systeem"
@@ -18,8 +23,14 @@ def invoerendoorkomst():
     if request.method == 'POST':
         team = request.form['team_insert']
         datetime_current = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat() #current system datetime
-        
+
+        buffer_temp = (datetime_current, team) #combine al data into a single variable
+
+        webserver().buffer.append(buffer_temp) 
+
         print(datetime_current, " ", team)
+        print(webserver().buffer)
+
 
     return render_template("invoeren_doorkomst.html", title= title)
 
@@ -32,6 +43,7 @@ def wijzigingen():
 def instellingen():
     title = "Instellingen"
     return render_template("instellingen.html", title= title)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug = True)
