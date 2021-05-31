@@ -47,11 +47,11 @@ def bufferloop_thread():
             RFID.RFID.RFID.buffer = list(set(RFID.RFID.RFID.buffer)-set(buffer_save)) #remove saved data from the buffer of the RFID class
 
         # buffer webapp to file    
-        if len(webapp.webapp.buffer) > 0: # If the buffer is not empty
-            buffer_save = webapp.webapp.buffer #save buffedata to local variable
+        if len(webapp.webapp.webserver.buffer) > 0: # If the buffer is not empty
+            buffer_save = webapp.webapp.webserver.buffer #save buffedata to local variable
             
             save_data(buffer_save) #write buffer data to function save data
-            webapp.webapp.buffer = list(set(webapp.webapp.buffer)-set(buffer_save)) #remove saved data from the buffer of the webapp
+            webapp.webapp.webserver.buffer = list(set(webapp.webapp.webserver.buffer)-set(buffer_save)) #remove saved data from the buffer of the webapp
        
         cloud_synchronization() # send all data to the cloud
 
