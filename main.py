@@ -44,7 +44,7 @@ def save_data(data, source_type): #function to save data from memory to file
             data_for_file.append(data_temp)
 
 
-        if source_type == "webapp":
+        elif source_type == "webapp":
             webapp_datetime = tup[0]
             webapp_team = tup[1]
 
