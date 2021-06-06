@@ -12,7 +12,7 @@ def RFIDtag_to_team(RFIDtag):
     
     filename = config.config_read()["system"]["filename_RFIDtagToTeam"] #get file_name from config
     with open(filename, 'r') as file:
-        file_reader = csv.reader(file, delimiter = ';')
+        file_reader = csv.reader(file, delimiter = ',')
         for row in file_reader:
             RFIDtag_RFIDtag_list.append(row[0])
             RFIDtag_team_list.append(row[1])
