@@ -6,17 +6,57 @@ import webapp.webapp #local webserver for entering manual data
 import RFID.RFID #RFID reader interaction
 import config #import the config of the app
 
+def RFIDtag_to_team(RFIDtag):
+    RFIDtag_RFIDtag_list = []
+    RFIDtag_team_list = []
+    
+    with open('RFIDtag_team.csv', 'r') as file:
+        file_reader = csv.reader(file, delimiter = ';')
+        for row in file_reader:
+            RFIDtag_RFIDtag_list.append(row[0])
+            RFIDtag_team_list.append(row[1])
+    
+    try:
+        RFID_to_team_index = RFIDtag_RFIDtag_list.index(RFIDtag)
+        team = RFIDtag_team_list[RFID_to_team_index] 
+        print(team)
+    except ValueError:
+        team = 000 
+        print(team)
+    
+    return(team)
 
-def save_data(data): #function to save data from memory to file
+
+def save_data(data, source_type): #function to save data from memory to file
     checkpoint = config.config_read()["competition"]["checkpoint"] #get current checkpoint
     checkpointteam = config.config_read()["competition"]["checkpointteam"] #get current checkpointteam
 
-    data = [list(tup)+[checkpoint, checkpointteam] for tup in data] #add checkpoint and checkpointteam to dataset in buffer
-    
+    data_for_file = []
+    for tup in data:
+        if source_type == "RFID":
+            RFID_datetime = tup[0]
+            RFID_tag = tup[1]
+            RFID_rss = tup[2]
+            RFID_team = RFIDtag_to_team(RFID_tag)
+
+            data_temp = (RFID_datetime, RFID_tag, RFID_team, RFID_rss, checkpoint, checkpointteam, source_type)
+            data_for_file.append(data_temp)
+
+
+        if source_type == "webapp":
+            webapp_datetime = tup[0]
+            webapp_team = tup[1]
+
+            data_temp = (webapp_datetime, "Na", webapp_team, "Na", checkpoint, checkpointteam, source_type)
+            data_for_file.append(data_temp)
+
+        else:
+            return None
+ 
     file_name = config.config_read()["system"]["file_name"] #get file_name from config
     with open(file_name,'a') as f: #write buffer to file
         writer = csv.writer(f)
-        writer.writerows(data)
+        writer.writerows(data_for_file)
 
 
 def cloud_synchronization():
@@ -43,14 +83,14 @@ def bufferloop_thread():
         if len(RFID.RFID.RFID.buffer) > 0: # If the buffer is not empty
             buffer_save = RFID.RFID.RFID.buffer #save buffedata to local variable
             
-            save_data(buffer_save) #write buffer data to function save data
+            save_data(buffer_save, "RFID") #write buffer data to function save data
             RFID.RFID.RFID.buffer = list(set(RFID.RFID.RFID.buffer)-set(buffer_save)) #remove saved data from the buffer of the RFID class
 
         # buffer webapp to file    
         if len(webapp.webapp.webserver.buffer) > 0: # If the buffer is not empty
             buffer_save = webapp.webapp.webserver.buffer #save buffedata to local variable
             
-            save_data(buffer_save) #write buffer data to function save data
+            save_data(buffer_save, "webapp") #write buffer data to function save data
             webapp.webapp.webserver.buffer = list(set(webapp.webapp.webserver.buffer)-set(buffer_save)) #remove saved data from the buffer of the webapp
        
         cloud_synchronization() # send all data to the cloud
