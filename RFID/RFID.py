@@ -31,7 +31,7 @@ class RFID(threading.Thread):
 
 
 					if " ".join(map(str, self.data[0:2])) == "31 67": #get the data and split the data on their meaning
-						self.result = " ".join(map(str, self.data[18:30])) #RFID chip ID
+						self.result = " ".join(map(str, self.data[18:31])) #RFID chip ID
 						self.rss = " ".join(map(str, self.data[31:32])) #Received Signal Strength
 
 						self.datetime_current = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat() #current system datetime
