@@ -15,39 +15,42 @@
 
     <div class="container">
       <div class="row">
-        <button class="col s4 center-align" value="1" onclick="function_insertnumber(this.value)">1</button>
-        <button class="col s4 center-align" value="2" onclick="function_insertnumber(this.value)">2</button>
-        <button class="col s4 center-align" value="3" onclick="function_insertnumber(this.value)">3</button>
+        <button class="btn col s4 center-align" value="1" onclick="function_insertnumber(this.value)">1</button>
+        <button class="btn col s4 center-align" value="2" onclick="function_insertnumber(this.value)">2</button>
+        <button class="btn col s4 center-align" value="3" onclick="function_insertnumber(this.value)">3</button>
       </div>
       <div class="row">
-        <button class="col s4 center-align" value="4" onclick="function_insertnumber(this.value)">4</button>
-        <button class="col s4 center-align" value="5" onclick="function_insertnumber(this.value)">5</button>
-        <button class="col s4 center-align" value="6" onclick="function_insertnumber(this.value)">6</button>
+        <button class="btn col s4 center-align" value="4" onclick="function_insertnumber(this.value)">4</button>
+        <button class="btn col s4 center-align" value="5" onclick="function_insertnumber(this.value)">5</button>
+        <button class="btn col s4 center-align" value="6" onclick="function_insertnumber(this.value)">6</button>
       </div>
       <div class="row">
-        <button class="col s4 center-align" value="7" onclick="function_insertnumber(this.value)">7</button>
-        <button class="col s4 center-align" value="8" onclick="function_insertnumber(this.value)">8</button>
-        <button class="col s4 center-align" value="9" onclick="function_insertnumber(this.value)">9</button>
+        <button class="btn col s4 center-align" value="7" onclick="function_insertnumber(this.value)">7</button>
+        <button class="btn col s4 center-align" value="8" onclick="function_insertnumber(this.value)">8</button>
+        <button class="btn col s4 center-align" value="9" onclick="function_insertnumber(this.value)">9</button>
       </div>
       <div class="row">
-        <button class="col s4 center-align" onclick="function_cancel()">BACSPACE</button>
-        <button class="col s4 center-align" value="0" onclick="function_insertnumber(this.value)">0</button>
-        <button class="col s4 center-align" type="submit" form="input_doorkomst" value="Submit">ENTER</button>
+        <button class="btn col s4 center-align" onclick="function_cancel()">BACSPACE</button>
+        <button class="btn col s4 center-align" value="0" onclick="function_insertnumber(this.value)">0</button>
+        <button class="btn col s4 center-align" type="submit" form="input_doorkomst" value="Submit">ENTER</button>
       </div>    
     </div>
 
     <div class="row">
       <p class="col s12 center-align">Straffen</p>
       <div class="row">
-
+        <button class="btn col s6 center-align" value="MV" >MV</button>
+        <button class="btn col s6 center-align" value="VM" >VM</button>
       </div>
-
+      <div class="row">
+        <button class="btn col s6 center-align" value="GH" >Geen Hes</button>
+        <button class="btn col s6 center-align" value="Fietser">Fietser</button>
+      </div>
     </div>
 
   </div>
 
   <script>
-    
     function function_cancel() {
         document.getElementById("team_insert").value = "";
         }
@@ -55,7 +58,6 @@
     function function_insertnumber(number) {
         document.getElementById("team_insert").value = document.getElementById("team_insert").value + number;
         }
-
 </script>
 
 {% endblock%}
