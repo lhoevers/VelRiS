@@ -19,7 +19,8 @@ def config_create():
                 "battery" : "Na",
                 "internet": "Na",
                 "update_interval" : "Na",
-                "file_name" : "Na",
+                "filename_registration" : "Na",
+                "filename_RFIDtagToTeam": "Na"
             }),    
             "log" : dict({
                 "update_last" : "Na",

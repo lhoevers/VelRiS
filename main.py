@@ -10,7 +10,8 @@ def RFIDtag_to_team(RFIDtag):
     RFIDtag_RFIDtag_list = []
     RFIDtag_team_list = []
     
-    with open('RFIDtag_team.csv', 'r') as file:
+    filename = config.config_read()["system"]["filename_RFIDtagToTeam"] #get file_name from config
+    with open(filename, 'r') as file:
         file_reader = csv.reader(file, delimiter = ';')
         for row in file_reader:
             RFIDtag_RFIDtag_list.append(row[0])
@@ -53,8 +54,8 @@ def save_data(data, source_type): #function to save data from memory to file
         else:
             return None
  
-    file_name = config.config_read()["system"]["file_name"] #get file_name from config
-    with open(file_name,'a') as f: #write buffer to file
+    filename = config.config_read()["system"]["filename_registration"] #get file_name from config
+    with open(filename,'a') as f: #write buffer to file
         writer = csv.writer(f)
         writer.writerows(data_for_file)
 
