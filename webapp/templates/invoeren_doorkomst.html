@@ -32,7 +32,7 @@
       <div class="row">
         <button class="btn col s4 center-align" onclick="function_cancel()">BACSPACE</button>
         <button class="btn col s4 center-align" value="0" onclick="function_insertnumber(this.value)">0</button>
-        <button class="btn col s4 center-align" type="submit" form="input_doorkomst" value="Submit">ENTER</button>
+        <button class="btn col s4 center-align" type="submit" form="input_doorkomst" value="Submit" onclick="showToast()">ENTER</button>
       </div>    
     </div>
 
@@ -58,6 +58,9 @@
     function function_insertnumber(number) {
         document.getElementById("team_insert").value = document.getElementById("team_insert").value + number;
         }
+    function showToast(){
+        M.toast({html:document.getElementById("team_insert").value})
+    }
 </script>
 
 {% endblock%}
