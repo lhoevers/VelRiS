@@ -1,9 +1,17 @@
 {
     "competition": {
         "checkpointteam": "WPP-test",
-        "checkpointteam_list": ["WPP-test", "WPP-test-2", "WPP-test-3"],
-        "checkpoint": "Na",
-        "checkpoint_list": ["WP-test", "WP-test-2", "WP-test-3"]
+        "checkpointteam_list": [
+            "WPP-test",
+            "WPP-test-2",
+            "WPP-test-3"
+        ],
+        "checkpoint": "WP-test",
+        "checkpoint_list": [
+            "WP-test",
+            "WP-test-2",
+            "WP-test-3"
+        ]
     },
     "system": {
         "id": "Na",
