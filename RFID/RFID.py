@@ -3,6 +3,7 @@ import usb.core
 import usb.util
 import datetime
 import threading
+import config
 
 class RFID(threading.Thread):
 	buffer = [] #create empty buffer on initialising class 
@@ -16,6 +17,9 @@ class RFID(threading.Thread):
 	def run(self):
 		if self.device is not None: #when RFID reader is found
 			print("RFID device found") #print RFID reader is found
+			config_all = config.config_read()
+			config_all['system']['RFID_reader'] = "TRUE"
+			config.config_write(config_all)
 
 			self.interface = 0
 			self.endpoint = self.device[0][(0,0)][0]
@@ -46,3 +50,6 @@ class RFID(threading.Thread):
 
 		else: #in casae no RFID device is found
 			print("No RFID device found")
+			config_all = config.config_read()
+			config_all['system']['RFID_reader'] = "FALSE"
+			config.config_write(config_all)
