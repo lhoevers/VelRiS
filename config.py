@@ -19,6 +19,7 @@ def config_create():
                 "battery" : "Na",
                 "internet": "Na",
                 "update_interval" : "Na",
+                "RFID_reader": "Na",
                 "filename_registration" : "Na",
                 "filename_RFIDtagToTeam": "Na"
             }),    

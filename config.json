@@ -18,6 +18,7 @@
         "battery": "Na",
         "internet": "TRUE",
         "update_interval": 1,
+        "RFID_reader": "Na",
         "filename_registration": "VL_Doorkomst.csv",
         "filename_RFIDtagToTeam": "RFIDtag_team.csv"
     },

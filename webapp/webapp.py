@@ -30,8 +30,8 @@ def invoerendoorkomst():
 
         webserver().buffer.append(buffer_temp) 
 
-        print(datetime_current, " ", team)
-        print(webserver().buffer)
+#        print(datetime_current, " ", team)
+#        print(webserver().buffer)
 
 
     return render_template("invoeren_doorkomst.html", title= title)
