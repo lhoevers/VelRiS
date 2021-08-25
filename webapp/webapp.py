@@ -47,7 +47,6 @@ def instellingen():
     config_load = config.config_read()
 
     if request.method == 'POST':
-        print('test')
         
         config_load["competition"]["checkpointteam"] = request.form['checkpointteam']
         config_load["competition"]["checkpoint"] = request.form['checkpoint']
