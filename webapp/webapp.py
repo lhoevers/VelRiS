@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask.config import Config
 import config #import the config of the app
 import datetime
 
@@ -39,10 +40,21 @@ def wijzigingen():
     title = "Wijzigingen"
     return render_template("wijzigingen.html", title= title)
 
-@app.route("/instellingen")
+@app.route("/instellingen", methods = ['POST', 'GET'])
 def instellingen():
     title = "Instellingen"
-    return render_template("instellingen.html", title= title)
+    config_load = config.config_read()
+
+    if request.method == 'POST':
+        print('test')
+        
+        config_load["competition"]["checkpointteam"] = request.form['checkpointteam']
+        config_load["competition"]["checkpoint"] = request.form['checkpoint']
+        
+        config.config_write(config_load)
+
+        
+    return render_template("instellingen.html", title= title, config_load = config_load)
 
 
 if __name__ == '__main__':

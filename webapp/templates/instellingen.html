@@ -1,5 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="container">
     <h1>Instellingen</h1>
+
+    <form method="POST" id="update_instellingen">
+        <div class="input-field col s12">
+            
+            <select id="checkpointteam" name="checkpointteam">
+                <option value='{{config_load.competition.checkpointteam}}' selected>{{config_load.competition.checkpointteam}}</option>
+                {% for Wisselpuntploeg_list_optie in config_load.competition.checkpointteam_list %}
+                    {% if Wisselpuntploeg_list_optie != config_load.competition.checkpointteam %}
+                        <option value="{{Wisselpuntploeg_list_optie}}">{{ Wisselpuntploeg_list_optie }}</option>        
+                    {% endif %}   
+                {% endfor %}    
+            </select> 
+            
+            <label>Selecteer Wisselpuntploeg</label>
+
+        </div>
+
+        <div class="input-field col s12">
+            
+            <select id="checkpoint" name="checkpoint">
+                <option value="{{config_load.competition.checkpoint}}" selected>{{config_load.competition.checkpoint}}</option>
+                {% for Wisselpunt_list_optie in config_load.competition.checkpoint_list %}
+                    {% if Wisselpunt_list_optie != config_load.competition.checkpoint %}
+                    <option value="{{Wisselpunt_list_optie}}">{{ Wisselpunt_list_optie }}</option>
+                    {% endif %}           
+                {% endfor %}    
+            </select> 
+            
+            <label>Selecteer Wisselpunt</label>
+
+        </div>
+
+        <button class="btn col s4 center-align" type="submit" form="update_instellingen" value="Submit">Wijzigingen opslaan</button>
+
+    </form>
+</div>
 {% endblock%}

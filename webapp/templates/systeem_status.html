@@ -10,30 +10,10 @@
             <tr>
               <td>Wisselpuntploeg</td>
               <td>{{ config_load.competition.checkpointteam }}</td>
-              <td>  <!-- Dropdown Trigger -->
-                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Wijzigingen</a>
-              
-                <!-- Dropdown Structure -->
-                <ul id='dropdown1' class='dropdown-content'>
-                  {% for Wisselpuntploeg_list_optie in config_load.competition.checkpointteam_list %}
-                    <li><a href="#!">{{ Wisselpuntploeg_list_optie }}</a></li>           
-                  {% endfor %}
-                </ul>
-              </td>
             </tr>
             <tr>
               <td>Wisselpunt</td>
               <td>{{ config_load.competition.checkpoint }}</td>
-                <td>  <!-- Dropdown Trigger -->
-                  <a class='dropdown-trigger btn' href='#' data-target='dropdown2'>Wijzigingen</a>
-              
-                  <!-- Dropdown Structure -->
-                  <ul id='dropdown2' class='dropdown-content'>
-                    {% for Wisselpunt_list_optie in config_load.competition.checkpoint_list %}
-                      <li><a href="#!">{{ Wisselpunt_list_optie }}</a></li>           
-                    {% endfor %}
-                  </ul>
-                </td>
             </tr>
             <tr>
               <td>Identificatie</td>
