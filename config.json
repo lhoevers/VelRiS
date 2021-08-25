@@ -6,7 +6,7 @@
             "WPP-test-2",
             "WPP-test-3"
         ],
-        "checkpoint": "WP-test",
+        "checkpoint": "WP-test-3",
         "checkpoint_list": [
             "WP-test",
             "WP-test-2",
@@ -14,9 +14,9 @@
         ]
     },
     "system": {
-        "id": "Na",
+        "id": "ERROR000000000",
         "battery": "Na",
-        "internet": "Na",
+        "internet": "TRUE",
         "update_interval": 1,
         "filename_registration": "VL_Doorkomst.csv",
         "filename_RFIDtagToTeam": "RFIDtag_team.csv"

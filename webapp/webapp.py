@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
-from flask.config import Config
+from flask.config import Config 
 import config #import the config of the app
 import datetime
+
 
 app = Flask(__name__)
 
