@@ -9,7 +9,7 @@ import RFID.RFID #RFID reader interaction
 import config #import the config of the app
 
 def on_boot():
-    print('boot')
+#    print('boot')
     config_all = config.config_read()
     config_all['system']['id'] = getserial()
     config.config_write(config_all)
@@ -42,10 +42,10 @@ def RFIDtag_to_team(RFIDtag):
     try:
         RFID_to_team_index = RFIDtag_RFIDtag_list.index(RFIDtag)
         team = RFIDtag_team_list[RFID_to_team_index] 
-        print(team)
+#        print(team)
     except ValueError:
         team = 000 
-        print(team)
+#        print(team)
     
     return(team)
 
