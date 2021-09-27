@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask.config import Config 
 import config #import the config of the app
 import datetime
-
+import ast
 
 app = Flask(__name__)
 
@@ -49,8 +49,9 @@ def instellingen():
     if request.method == 'POST':
         
         config_load["competition"]["checkpointteam"] = request.form['checkpointteam']
-        config_load["competition"]["checkpoint"] = request.form['checkpoint']
-        
+        config_load["competition"]["checkpoint"] = ast.literal_eval(request.form['checkpoint'])
+        config_load["competition"]["ETAPPE_VOLGNUMMER"] = config_load["competition"]["checkpoint"]["ETAPPE_VOLGNUMMER"]
+
         config.config_write(config_load)
 
         

@@ -9,6 +9,9 @@ def config_create():
     if os.path.exists("config.json") == False:
         settings = dict({
             "competition" : dict({
+                "EVENEMENT_ID": "Na",
+                "ETAPPE_VOLGNUMMER": "Na",
+                "LOCATIE_ID": "Na",
                 "checkpointteam" : "Na",
                 "checkpointteam_list" : "Na",
                 "checkpoint" : "Na",
@@ -18,10 +21,17 @@ def config_create():
                 "id" : "Na",
                 "battery" : "Na",
                 "internet": "Na",
-                "update_interval" : "Na",
+                "update_interval" : 1,
                 "RFID_reader": "Na",
                 "filename_registration" : "Na",
                 "filename_RFIDtagToTeam": "Na"
+            }),
+            "database" : dict({
+                "host":  "Na",
+                "user": "Na",
+                "password": "Na",
+                "database": "Na",
+                "charset": "Na"
             }),    
             "log" : dict({
                 "update_last" : "Na",

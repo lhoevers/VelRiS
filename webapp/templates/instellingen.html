@@ -23,10 +23,10 @@
         <div class="input-field col s12">
             
             <select id="checkpoint" name="checkpoint">
-                <option value="{{config_load.competition.checkpoint}}" selected>{{config_load.competition.checkpoint}}</option>
+                <option value="{{config_load.competition.checkpoint }}" selected>{{ config_load.competition.checkpoint.ETAPPE_NAAM }}</option>
                 {% for Wisselpunt_list_optie in config_load.competition.checkpoint_list %}
                     {% if Wisselpunt_list_optie != config_load.competition.checkpoint %}
-                    <option value="{{Wisselpunt_list_optie}}">{{ Wisselpunt_list_optie }}</option>
+                    <option value="{{Wisselpunt_list_optie}}">{{ Wisselpunt_list_optie.ETAPPE_NAAM }}</option>
                     {% endif %}           
                 {% endfor %}    
             </select> 
