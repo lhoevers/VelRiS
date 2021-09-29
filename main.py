@@ -1,3 +1,4 @@
+from datetime import datetime
 from os import system
 import threading
 import csv
@@ -71,7 +72,7 @@ def save_data(data, source_type): #function to save data from memory to file
 
         elif source_type == "MANUAL":
             webapp_datetime = tup[0]
-            webapp_team = str(tup[1]) #+ str(ETAPPE_VOLGNUMMER)
+            webapp_team = tup[1]
 
             data_temp = (webapp_datetime, "Na", webapp_team, "Na", ETAPPE_VOLGNUMMER, EVENEMENT_ID, LOCATIE_ID, checkpointteam, source_type, "no_sync")
             data_for_file.append(data_temp)
@@ -131,11 +132,14 @@ def cloud_synchronization():
                         cursor.execute(sql, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
                         connection.commit()
 
-                        sql_2 = "SELECT EXISTS(SELECT * from `DOORKOMSTEN` WHERE `EVENEMENT_ID`=%s AND `ETAPPE_VOLGNUMMER`=%s AND `STARTNUMMER`=%s AND `DOORKOMSTTIJD`=%s)"
-                        cursor.execute(sql_2, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
-                        connection.commit()
-                        result = cursor.fetchone()
-                        print(list(result.values())[0])
+
+                        print(cursor.lastrowid)
+
+#                        sql_2 = "SELECT EXISTS(SELECT * from `DOORKOMSTEN` WHERE `EVENEMENT_ID`=%s AND `ETAPPE_VOLGNUMMER`=%s AND `STARTNUMMER`=%s AND `DOORKOMSTTIJD`=%s)"
+#                        cursor.execute(sql_2, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
+#                        connection.commit()
+#                        result = cursor.fetchone()
+#                        print(list(result.values())[0])
                         cursor.close()
 
                         lines[row][9] = "sync"
@@ -209,8 +213,11 @@ def bufferloop_thread():
             
             save_data(buffer_save, "MANUAL") #write buffer data to function save data
             webapp.webapp.webserver.buffer = list(set(webapp.webapp.webserver.buffer)-set(buffer_save)) #remove saved data from the buffer of the webapp
-       
-        cloud_synchronization() # send all data to the cloud
+        
+        try:
+            cloud_synchronization() # send all data to the cloud
+        except:
+            print(datetime.now(), "Failed cloud synchronization")
 
         time.sleep(update_interval) #wait update interval
         
@@ -228,6 +235,3 @@ if __name__ == '__main__':
     print('step 4')
     time.sleep(2)
     threading.Thread(target=bufferloop_thread).start() #start thread for redaing buffers
-    
-    
-    
