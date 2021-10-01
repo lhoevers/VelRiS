@@ -125,27 +125,55 @@ def cloud_synchronization():
 
                 if status == "no_sync":
                     print("to sync")
+                    if DOORKOMST_TYPE == "MANUAL":
+                        try:
+                            sql = """
+                            CALL doorkomst_chip(%s,%s,%s,%s, @rowCount)
+                            """
+                        
+                            cursor = connection.cursor()
+                            cursor.execute(sql, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
+                            connection.commit()
 
-                    try:
-                        sql = "CALL Doorkomst(%s,%s,%s,%s)"
-                        cursor = connection.cursor()
-                        cursor.execute(sql, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
-                        connection.commit()
+                            sql_2 = """
+                            Select @rowCount;
+                            """
+                        
+                            cursor.execute(sql_2)
+                            connection.commit()
+                            result = cursor.fetchone()
+                            print(list(result.values())[0])
+                            cursor.close()
+                            if list(result.values())[0] != 0:
+                                lines[row][9] = "sync"
 
+                        except:
+                            print("Failed to insert record into table")
 
-                        print(cursor.lastrowid)
+                    if DOORKOMST_TYPE == "AUTO":
+                        try:
+                            sql = """
+                            CALL doorkomst_chip(%s,%s,%s,%s, @rowCount)
+                            """
+                        
+                            cursor = connection.cursor()
+                            cursor.execute(sql, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
+                            connection.commit()
 
-#                        sql_2 = "SELECT EXISTS(SELECT * from `DOORKOMSTEN` WHERE `EVENEMENT_ID`=%s AND `ETAPPE_VOLGNUMMER`=%s AND `STARTNUMMER`=%s AND `DOORKOMSTTIJD`=%s)"
-#                        cursor.execute(sql_2, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER, DOORKOMSTTIJD))
-#                        connection.commit()
-#                        result = cursor.fetchone()
-#                        print(list(result.values())[0])
-                        cursor.close()
+                            sql_2 = """
+                            Select @rowCount;
+                            """
+                        
+                            cursor.execute(sql_2)
+                            connection.commit()
+                            result = cursor.fetchone()
+                            print(list(result.values())[0])
+                            cursor.close()
+                            if list(result.values())[0] != 0:
+                                lines[row][9] = "sync"
 
-                        lines[row][9] = "sync"
-
-                    except:
-                        print("Failed to insert record into table")
+                        except:
+                            print("Failed to insert record into table")
     f.close()
 
 
