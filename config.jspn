@@ -1,0 +1,29 @@
+{
+    "competition": {
+        "checkpointteam": "WPP-test",
+        "checkpointteam_list": [
+            "WPP-test",
+            "WPP-test-2",
+            "WPP-test-3"
+        ],
+        "checkpoint": "WP-test-3",
+        "checkpoint_list": [
+            "WP-test",
+            "WP-test-2",
+            "WP-test-3"
+        ]
+    },
+    "system": {
+        "id": "ERROR000000000",
+        "battery": "Na",
+        "internet": "TRUE",
+        "update_interval": 1,
+        "RFID_reader": "Na",
+        "filename_registration": "VL_Doorkomst.csv",
+        "filename_RFIDtagToTeam": "RFIDtag_team.csv"
+    },
+    "log": {
+        "update_last": "Na",
+        "record_last": "Na"
+    }
+}
