@@ -88,11 +88,11 @@
         "filename_RFIDtagToTeam": "RFIDtag_team.csv"
     },
     "database": {
-        "host": "sql371.main-hosting.eu",
-        "user": "u328463558_VELUWELOOP_TST",
-        "password": "VeluweloopTijd1!",
-        "database": "u328463558_VELUWELOOP_TST",
-        "charset": "utf8mb4"
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": "",
+        "charset": ""
     },
     "log": {
         "update_last": "Na",
