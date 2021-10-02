@@ -128,7 +128,7 @@ def cloud_synchronization():
                     if DOORKOMST_TYPE == "MANUAL":
                         try:
                             sql = """
-                            CALL doorkomst_chip(%s,%s,%s,%s, @rowCount)
+                            CALL Doorkomst(%s,%s,%s,%s, @rowCount)
                             """
                         
                             cursor = connection.cursor()
