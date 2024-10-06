@@ -1,3 +1,4 @@
+from cmath import isnan
 from datetime import datetime
 from os import system
 import threading
@@ -5,9 +6,10 @@ import csv
 import time
 import requests
 import pymysql.cursors
+import json
 
 import webapp.webapp #local webserver for entering manual data
-import RFID.RFID #RFID reader interaction
+# import RFID.RFID #RFID reader interaction
 import config #import the config of the app
 
 def on_boot():
@@ -73,8 +75,12 @@ def save_data(data, source_type): #function to save data from memory to file
         elif source_type == "MANUAL":
             webapp_datetime = tup[0]
             webapp_team = tup[1]
+            webapp_straf = tup[2]
 
-            data_temp = (webapp_datetime, "Na", webapp_team, "Na", ETAPPE_VOLGNUMMER, EVENEMENT_ID, LOCATIE_ID, checkpointteam, source_type, "no_sync")
+            if webapp_team == "":
+                webapp_team = 0
+
+            data_temp = (webapp_datetime, "Na", webapp_team, "Na", ETAPPE_VOLGNUMMER, EVENEMENT_ID, LOCATIE_ID, checkpointteam, source_type, "no_sync", webapp_straf)
             data_for_file.append(data_temp)
 
         else:
@@ -122,10 +128,11 @@ def cloud_synchronization():
                 STARTNUMMER = lines[row][2]
                 DOORKOMST_TYPE = lines[row][8]
                 status = lines[row][9]
+                STRAF = lines[row][10]
 
                 if status == "no_sync":
                     print("to sync")
-                    if DOORKOMST_TYPE == "MANUAL":
+                    if ((DOORKOMST_TYPE == "MANUAL") and (STRAF == "NA")):
                         try:
                             sql = """
                             CALL Doorkomst(%s,%s,%s,%s, @rowCount)
@@ -150,6 +157,31 @@ def cloud_synchronization():
                         except:
                             print("Failed to insert record into table")
 
+                    if STRAF == "MV":
+                        try:
+                            sql = """
+                            CALL consequentie_mv(%s,%s,%s, @rowCount);
+                            """
+                        
+                            cursor = connection.cursor()
+                            cursor.execute(sql, (EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER))
+                            connection.commit()
+
+                            sql_2 = """
+                            Select @rowCount;
+                            """
+                        
+                            cursor.execute(sql_2)
+                            connection.commit()
+                            result = cursor.fetchone()
+                            print(list(result.values())[0])
+                            cursor.close()
+                            if list(result.values())[0] != 0:
+                                lines[row][9] = "sync"
+
+                        except:
+                            print("Failed to insert record into table")
+                    
                     if DOORKOMST_TYPE == "AUTO":
                         try:
                             sql = """
@@ -182,7 +214,7 @@ def cloud_synchronization():
         writer.writerows(lines)
     f.close
     
-                
+    #read wisselpuntenlijst            
     with connection.cursor() as cursor:
         try:
             # Read a single record
@@ -192,11 +224,9 @@ def cloud_synchronization():
             JOIN `LOOPROUTES` L on E.LOOPROUTE_ID=L.LOOPROUTE_ID
             JOIN `LOOPROUTES_ETAPPES` LE on L.LOOPROUTE_ID=LE.LOOPROUTE_ID
             JOIN `ETAPPES` ET ON LE.ETAPPE_ID=ET.ETAPPE_ID
-            WHERE `EVENEMENT_ID`=5
+            WHERE `EVENEMENT_ID`=8
             """
-            
-#            "SELECT `ETAPPE_ID`, `ETAPPE_NAAM`, `LOCATIE_ID_FINISH` FROM `ETAPPES`"
-#              "SELECT * FROM `EVENEMENTEN` JOIN `LOOPROUTES` on `EVENEMENTEN.LOOPROUTE_ID` = `LOOPROUTES.LOOPROUTE_ID` JOIN `LOOPROUTES_ETAPPES` on `LOOPROUTES.LOOPROUTE_ID` = `LOOPROUTES_ETAPPES.LOOPROUTE_ID` JOIN `ETAPPES` ON `LOOPROUTES_ETAPPES.ETAPPE_ID` = `ETAPPES.ETAPPE_ID` WHERE `EVENEMENTEN.EVENEMENT_ID` = '5'"
+
             cursor = connection.cursor()
             cursor.execute(sql)
             result = cursor.fetchall()
@@ -212,15 +242,79 @@ def cloud_synchronization():
         except:
                 print("Failed to read record from table")
 
+    #read ploeglijst
+    with connection.cursor() as cursor:
+        try:
+            # Read a single record
+            sql = """
+            SELECT PLOEGNUMMER, PLOEGNAAM, STARTGROEP,
+            CASE    
+            WHEN (SELECT 1 FROM PLOEG_KLASSEMENTEN WHERE PLOEG_ID = P.PLOEG_ID AND KLASSEMENT_ID =2) = 1 THEN 'Studentenklassement'
+            WHEN (SELECT 1 FROM PLOEG_KLASSEMENTEN WHERE PLOEG_ID = P.PLOEG_ID AND KLASSEMENT_ID =3) = 1 THEN 'Bedrijvenklassement'
+            ELSE 'Algemeen klassement' 
+            END AS KLASSEMENT
+
+            FROM PLOEG P
+            WHERE P.EVENEMENT_ID = 8 AND STARTGROEP IN(1,2)
+            ORDER BY PLOEGNUMMER
+            """            
+
+            cursor = connection.cursor()
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            cursor.close()
+            
+            #print(result)
+            result_list = []
+            for row in result:
+                result_list.append(row)
+            config_all = config.config_read()
+            config_all["competition"]["team_list"] = result_list
+            config.config_write(config_all)
+
+        except:
+                print("Failed to read record from table")
+
+    #read doorkomsten
+    with connection.cursor() as cursor:
+        try:
+            # Read a single record
+            sql = """
+            SELECT EVENEMENT_ID, ETAPPE_VOLGNUMMER, STARTNUMMER
+            FROM DOORKOMSTEN
+            WHERE `EVENEMENT_ID`=8
+            """            
+
+            cursor = connection.cursor()
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            cursor.close()
+            
+#            print(result)
+            result_list = []
+            for row in result:
+                result_list.append(row)
+
+            config_all = config.config_read()
+            config_all["competition"]["doorkomsten"] = result_list
+            config.config_write(config_all)
+
+        except:
+                print("Failed to read record from table")
+
+
+
+
+
 
 def flaskThread(): #function to start local webserver
     webapp.webapp.app.run(host="0.0.0.0", threaded=True)
 
 
-# start and keep reading RFID reader from the class RFID
-def RFIDThread():  
-    RFID.RFID.RFID().start()
-
+## start and keep reading RFID reader from the class RFID
+#def RFIDThread():  
+#    RFID.RFID.RFID().start()
+#
 
 # read the buffer of the RFID class
 def bufferloop_thread():  
@@ -229,11 +323,11 @@ def bufferloop_thread():
         update_interval = config.config_read()["system"]["update_interval"] #get current update interval
 
         # buffer RFID to file
-        if len(RFID.RFID.RFID.buffer) > 0: # If the buffer is not empty
-            buffer_save = RFID.RFID.RFID.buffer #save buffedata to local variable
-            
-            save_data(buffer_save, "AUTO") #write buffer data to function save data
-            RFID.RFID.RFID.buffer = list(set(RFID.RFID.RFID.buffer)-set(buffer_save)) #remove saved data from the buffer of the RFID class
+#        if len(RFID.RFID.RFID.buffer) > 0: # If the buffer is not empty
+#            buffer_save = RFID.RFID.RFID.buffer #save buffedata to local variable
+#            
+#            save_data(buffer_save, "AUTO") #write buffer data to function save data
+#            RFID.RFID.RFID.buffer = list(set(RFID.RFID.RFID.buffer)-set(buffer_save)) #remove saved data from the buffer of the RFID class
 
         # buffer webapp to file    
         if len(webapp.webapp.webserver.buffer) > 0: # If the buffer is not empty
@@ -259,7 +353,7 @@ if __name__ == '__main__':
     threading.Thread(target=flaskThread).start() #start theard for webserver
     print('step 3')
     time.sleep(2)
-    threading.Thread(target=RFIDThread).start() #start thread for interaction with RFID reader
+#    threading.Thread(target=RFIDThread).start() #start thread for interaction with RFID reader
     print('step 4')
     time.sleep(2)
-    threading.Thread(target=bufferloop_thread).start() #start thread for redaing buffers
+    threading.Thread(target=bufferloop_thread).start() #start thread for reading buffers

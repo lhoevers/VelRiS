@@ -1,0 +1,37 @@
+[
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 1
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 10101
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 10201
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 10301
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 99901
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 99901
+    },
+    {
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
+        "STARTNUMMER": 99901
+    }
+]

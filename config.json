@@ -1,9 +1,9 @@
 {
     "competition": {
-        "EVENEMENT_ID": 5,
-        "ETAPPE_VOLGNUMMER": 6,
+        "EVENEMENT_ID": 8,
+        "ETAPPE_VOLGNUMMER": 1,
         "LOCATIE_ID": "Na",
-        "checkpointteam": "WPP-B",
+        "checkpointteam": "WPP-A",
         "checkpointteam_list": [
             "WPP-A",
             "WPP-B",
@@ -11,20 +11,20 @@
             "WPP-D"
         ],
         "checkpoint": {
-            "ETAPPE_VOLGNUMMER": 6,
-            "ETAPPE_NAAM": "Beerenberg - Emma Piramide",
+            "ETAPPE_VOLGNUMMER": 1,
+            "ETAPPE_NAAM": "De Bongerd - Oostereng",
             "MAN_VROUW": "V"
         },
         "checkpoint_list": [
             {
                 "ETAPPE_VOLGNUMMER": 1,
                 "ETAPPE_NAAM": "De Bongerd - Oostereng",
-                "MAN_VROUW": "M"
+                "MAN_VROUW": "V"
             },
             {
                 "ETAPPE_VOLGNUMMER": 2,
                 "ETAPPE_NAAM": "Oostereng - Gelderse Roos",
-                "MAN_VROUW": "M"
+                "MAN_VROUW": "V"
             },
             {
                 "ETAPPE_VOLGNUMMER": 3,
@@ -63,32 +63,659 @@
             },
             {
                 "ETAPPE_VOLGNUMMER": 10,
-                "ETAPPE_NAAM": "Planken Wambuis - Oostereng",
+                "ETAPPE_NAAM": "Planken Wambuis - Arboretum Oostereng",
                 "MAN_VROUW": "M"
             },
             {
                 "ETAPPE_VOLGNUMMER": 11,
-                "ETAPPE_NAAM": "Oostereng - Campus WUR",
+                "ETAPPE_NAAM": "Arboretum Oostereng - Campus WUR",
                 "MAN_VROUW": "V"
             },
             {
                 "ETAPPE_VOLGNUMMER": 12,
                 "ETAPPE_NAAM": "Campus WUR - De Bongerd",
-                "MAN_VROUW": "V"
+                "MAN_VROUW": "M"
             }
-        ]
+        ],
+        "team_list": [
+            {
+                "PLOEGNUMMER": 101,
+                "PLOEGNAAM": "Hpp \u2013 someusers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 102,
+                "PLOEGNAAM": "FC legendairy",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 103,
+                "PLOEGNAAM": "Bij elkaar geraapt zooitje",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 104,
+                "PLOEGNAAM": "Wet balls",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 105,
+                "PLOEGNAAM": "De Ontzetting",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 106,
+                "PLOEGNAAM": "MoMoMotoreiwitten",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 107,
+                "PLOEGNAAM": "NEXUS",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 109,
+                "PLOEGNAAM": "Aktief Slip",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 110,
+                "PLOEGNAAM": "Red shoes",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 111,
+                "PLOEGNAAM": "E. coligues",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 112,
+                "PLOEGNAAM": "Running H90",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 113,
+                "PLOEGNAAM": "Veluwegang",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 114,
+                "PLOEGNAAM": "Spatial Invaders",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 115,
+                "PLOEGNAAM": "loslopers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 116,
+                "PLOEGNAAM": "The micromachines",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 117,
+                "PLOEGNAAM": "Doorstiefelaars",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 118,
+                "PLOEGNAAM": "D.L.V. Nji-Sri",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 119,
+                "PLOEGNAAM": "Idioot Fast",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 120,
+                "PLOEGNAAM": "HAPs Powerhouse Express",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 121,
+                "PLOEGNAAM": "De Ondergang van Zaken",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 122,
+                "PLOEGNAAM": "anti-Toxidants",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 123,
+                "PLOEGNAAM": "WaHo",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 124,
+                "PLOEGNAAM": "Walhalla",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 125,
+                "PLOEGNAAM": "The ABG Livestock Leapers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 126,
+                "PLOEGNAAM": "Ibex",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 127,
+                "PLOEGNAAM": "Tartl\u00e9tosaurussen",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 128,
+                "PLOEGNAAM": "Beekdallyceum",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 129,
+                "PLOEGNAAM": "KEYRUNNERS",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 130,
+                "PLOEGNAAM": "Running @ WEcR",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 131,
+                "PLOEGNAAM": "FPE runners",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 132,
+                "PLOEGNAAM": "Patatje met Spin",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 133,
+                "PLOEGNAAM": "Peas and Carrots",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 134,
+                "PLOEGNAAM": "CODON rode lopers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 135,
+                "PLOEGNAAM": "Currimus 2",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 136,
+                "PLOEGNAAM": "`t Noaberschop",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 137,
+                "PLOEGNAAM": "De Zoomlopers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 138,
+                "PLOEGNAAM": "Runner Ducks",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 139,
+                "PLOEGNAAM": "Salemanders",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 141,
+                "PLOEGNAAM": "Schitterend Team Wegbanen",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 142,
+                "PLOEGNAAM": "Biologica: Anti-Lopen",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 143,
+                "PLOEGNAAM": "Damesch Haard Gezelschap",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 144,
+                "PLOEGNAAM": "CODONCODONJEMOEDERHEEFTEENSNOR",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 146,
+                "PLOEGNAAM": "De Wageningse Wegrenners",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 148,
+                "PLOEGNAAM": "Hire for Fries",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 149,
+                "PLOEGNAAM": "Wageningen Marine Research",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 150,
+                "PLOEGNAAM": "Friends of Colleagues of Friends",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 151,
+                "PLOEGNAAM": "H.M.I.D.H.D. De Zwevelpin",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 152,
+                "PLOEGNAAM": "De Loopneuzen",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 153,
+                "PLOEGNAAM": "De Vlinderstichting",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 154,
+                "PLOEGNAAM": "Le Lievre sportif",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 155,
+                "PLOEGNAAM": "La Tortue Sportive",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 156,
+                "PLOEGNAAM": "Bouillon",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 157,
+                "PLOEGNAAM": "Don`t Worry",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 158,
+                "PLOEGNAAM": "Herke en de Boomers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 159,
+                "PLOEGNAAM": "WSWV Hellingproof",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 160,
+                "PLOEGNAAM": "M.R.E.V.T.D.G.H.D. SHINTO",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 161,
+                "PLOEGNAAM": "WE run",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 162,
+                "PLOEGNAAM": "D\u00e9vaartd\u00e9rin",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 164,
+                "PLOEGNAAM": "WCC 2",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 165,
+                "PLOEGNAAM": "WCC 1",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 166,
+                "PLOEGNAAM": "Het Rode Gevaar",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 167,
+                "PLOEGNAAM": "Astmaniregunt",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 168,
+                "PLOEGNAAM": "Schoffelaars-Veteranen",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 169,
+                "PLOEGNAAM": "Voorheen de Rode Jeugd",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 170,
+                "PLOEGNAAM": "Lopend Vuurtje",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 171,
+                "PLOEGNAAM": "VIP team",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 172,
+                "PLOEGNAAM": "Scrambled Legs",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 173,
+                "PLOEGNAAM": "Veluwekruipers",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 174,
+                "PLOEGNAAM": "WSWV Hellingproof",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 175,
+                "PLOEGNAAM": "Planterfanters",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 176,
+                "PLOEGNAAM": "Fast Food",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Bedrijvenklassement"
+            },
+            {
+                "PLOEGNUMMER": 177,
+                "PLOEGNAAM": "K.O.D.S.",
+                "STARTGROEP": 1,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 201,
+                "PLOEGNAAM": "Tot op het bot",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 202,
+                "PLOEGNAAM": "`t Superscherpe raketenskader der DAV Kronos",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 203,
+                "PLOEGNAAM": "Bliksemsnel Altis",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 204,
+                "PLOEGNAAM": "Wij zijn \u2018t haasje",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 205,
+                "PLOEGNAAM": "De gele trein",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 207,
+                "PLOEGNAAM": "Cheetos Babies",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 210,
+                "PLOEGNAAM": "Tartl\u00e9tos Dreamteam",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 211,
+                "PLOEGNAAM": "Veluwehazen",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 212,
+                "PLOEGNAAM": "Germaanse vandalen",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 213,
+                "PLOEGNAAM": "Currimus 1",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 214,
+                "PLOEGNAAM": "Team boswandeling",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 215,
+                "PLOEGNAAM": "Lamkampioenen",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 216,
+                "PLOEGNAAM": "Tobbe met Wobbe",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 217,
+                "PLOEGNAAM": "Gewoed",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 218,
+                "PLOEGNAAM": "RZC team 1",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 219,
+                "PLOEGNAAM": "RZC team 2",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 221,
+                "PLOEGNAAM": "DE jonge honden",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 222,
+                "PLOEGNAAM": "FELuweloopteam",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 223,
+                "PLOEGNAAM": "Versleten Tartleten",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 224,
+                "PLOEGNAAM": "De Galli\u00ebrs",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 225,
+                "PLOEGNAAM": "T Ultravlotte straaljagersbataljon der DAV Kronos",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 226,
+                "PLOEGNAAM": "WOEST",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 227,
+                "PLOEGNAAM": "Survivalrunvereniging Wageningen",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 228,
+                "PLOEGNAAM": "Ir. Blaaskaak",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 230,
+                "PLOEGNAAM": "Luie Honden",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 231,
+                "PLOEGNAAM": "SITOO",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 232,
+                "PLOEGNAAM": "Winning women",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Studentenklassement"
+            },
+            {
+                "PLOEGNUMMER": 233,
+                "PLOEGNAAM": "Geil & lomp",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 234,
+                "PLOEGNAAM": "BAANaan",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 235,
+                "PLOEGNAAM": "Off the road ",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 236,
+                "PLOEGNAAM": "Route Ciko`66",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            },
+            {
+                "PLOEGNUMMER": 237,
+                "PLOEGNAAM": "Loopt wel los",
+                "STARTGROEP": 2,
+                "KLASSEMENT": "Algemeen klassement"
+            }
+        ],
+        "doorkomsten": []
     },
     "system": {
         "id": "ERROR000000000",
         "battery": "Na",
         "internet": "TRUE",
-        "update_interval": 1,
+        "update_interval": 5,
         "RFID_reader": "Na",
         "filename_registration": "VL_doorkomst.csv",
         "filename_RFIDtagToTeam": "RFIDtag_team.csv"
     },
     "database": {
-        "host": "sql371.main-hosting.eu",
+        "host": "srv962.hstgr.io",
         "user": "u328463558_VELUWELOOP_TST",
         "password": "VeluweloopTijd1!",
         "database": "u328463558_VELUWELOOP_TST",
